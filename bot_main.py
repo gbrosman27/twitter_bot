@@ -28,17 +28,17 @@ def limit_handler(cursor):
 
 
 # Searches for a number of tweets related to python/searched query.
-search_string = "python"
-number_of_tweets = 2
+# search_string = "python"
+# number_of_tweets = 2
 
-for tweet in tweepy.Cursor(api.search, search_string).items(number_of_tweets):
-    try:
-        tweet.favorite()
-        print("That's a cool tweet.")
-    except tweepy.TweepError as e:
-        print(e.reason)
-    except StopIteration:
-        break
+# for tweet in tweepy.Cursor(api.search, search_string).items(number_of_tweets):
+#     try:
+#         tweet.favorite()
+#         print("That's a cool tweet.")
+#     except tweepy.TweepError as e:
+#         print(e.reason)
+#     except StopIteration:
+#         break
 
 # Follows new followers.
 # for follower in limit_handler(tweepy.Cursor(api.followers).items()):
@@ -47,6 +47,6 @@ for tweet in tweepy.Cursor(api.search, search_string).items(number_of_tweets):
 
 
 # Prints tweets from homepage of timeline.
-# public_tweets = api.home_timeline()
-# for tweet in public_tweets:
-#     print(tweet.text)
+public_tweets = api.home_timeline()
+for tweet in public_tweets:
+    print(tweet.text)
